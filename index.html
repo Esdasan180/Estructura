@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Data Analysis Report</title>
+    <style>
+        :root {
+            --primary-color: #0077b6;
+            --secondary-color: #023e8a;
+            --background-color: #f5f5f5;
+            --light-background: #ffffff;
+            --text-color: #333;
+            --header-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: row;
+        }
+
+        nav {
+            width: 250px;
+            background: var(--secondary-color);
+            color: var(--header-color);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        nav h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--header-color);
+        }
+
+        nav a {
+            display: block;
+            color: var(--header-color);
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 2rem;
+            width: calc(100% - 250px);
+        }
+
+        header {
+            background: var(--primary-color);
+            color: var(--header-color);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            background: var(--light-background);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .chart-placeholder {
+            background: #e8eef4;
+            border: 2px dashed #bbb;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            color: #777;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .content {
+                margin-left: 0;
+                width: 100%;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <h2>Report Navigation</h2>
+    <a href="#executive-summary">Executive Summary</a>
+    <a href="#introduction">Introduction</a>
+    <a href="#data-sources">Data and Sources</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#results">Results</a>
+    <a href="#discussion">Discussion</a>
+    <a href="#conclusions">Conclusions</a>
+    <a href="#references">References</a>
+    <a href="#appendix">Appendix</a>
+</nav>
+
+<div class="content">
+    
+    <header>
+        <h1>Economic Data Analysis Report</h1>
+        <p>Professional Scientific Reporting Template</p>
+    </header>
+
+    <div class="section" id="executive-summary">
+        <h2>Executive Summary</h2>
+        <p>Briefly summarize the objectives, data sources, methods, and main findings of the analysis.</p>
+    </div>
+
+    <div class="section" id="introduction">
+        <h2>Introduction</h2>
+        <p>Provide background, context, motivation, and research questions driving the analysis.</p>
+    </div>
+
+    <div class="section" id="data-sources">
+        <h2>Data and Sources</h2>
+        <p>Describe datasets, sources (e.g., INDEC, IMF, World Bank), time periods, variables, sample size, and any data limitations.</p>
+    </div>
+
+    <div class="section" id="methodology">
+        <h2>Methodology</h2>
+        <p>Explain the statistical techniques, models, software tools (e.g., Python, R, Excel), and any data cleaning or transformation steps used.</p>
+    </div>
+
+    <div class="section" id="results">
+        <h2>Results</h2>
+        <div class="grid">
+            <div>
+                <h3>Descriptive Statistics</h3>
+                <p>Provide summary tables, mean, median, trends, and initial observations.</p>
+            </div>
+            <div class="chart-placeholder">
+                Insert descriptive charts here
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="chart-placeholder">
+                Insert analytical model chart here
+            </div>
+            <div>
+                <h3>Model Results</h3>
+                <p>Discuss results of any models or advanced analysis applied.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="discussion">
+        <h2>Discussion</h2>
+        <p>Interpret the results, discuss their implications, limitations, and relation to existing literature or policy debates.</p>
+    </div>
+
+    <div class="section" id="conclusions">
+        <h2>Conclusions and Recommendations</h2>
+        <p>Summarize key findings and propose policy or practical recommendations based on the analysis.</p>
+    </div>
+
+    <div class="section" id="references">
+        <h2>References</h2>
+        <p>List all data sources, reports, and scientific literature cited in the analysis.</p>
+    </div>
+
+    <div class="section" id="appendix">
+        <h2>Appendix (Optional)</h2>
+        <p>Include detailed tables, full models, additional charts, or any supplementary material.</p>
+    </div>
+
+    <footer>
+        <p>Generated by [Your Name or Organization] | © 2025</p>
+    </footer>
+</div>
+
+</body>
+</html>

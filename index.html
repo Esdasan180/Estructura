@@ -107,16 +107,30 @@
             color: #777;
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
             nav {
                 position: relative;
                 width: 100%;
                 height: auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
             }
+
+            nav a {
+                margin: 0.5rem 1rem;
+            }
+
             .content {
                 margin-left: 0;
                 width: 100%;
             }
+
             .grid {
                 grid-template-columns: 1fr;
             }
@@ -215,3 +229,4 @@
 
 </body>
 </html>
+

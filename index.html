@@ -1,104 +1,190 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Gráficos Interactivos</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Análisis de Datos Económicos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
-    <h1>Gráficos Interactivos (Plotly.js)</h1>
-    <button id="reset">Mostrar todos los subgrupos</button>
-    <div id="torta" style="width: 45%; display: inline-block; height: 400px;"></div>
-    <div id="barras" style="width: 45%; display: inline-block; height: 400px;"></div>
 
-    <script>
-        const data = [
-            { categoria: "A", subgrupo: "X", valor: 10 },
-            { categoria: "A", subgrupo: "Y", valor: 20 },
-            { categoria: "B", subgrupo: "X", valor: 30 },
-            { categoria: "B", subgrupo: "Y", valor: 10 },
-            { categoria: "C", subgrupo: "X", valor: 15 },
-            { categoria: "C", subgrupo: "Y", valor: 25 }
-        ];
+<header>
+    <div class="container-portada">
+        <div class="grid">
+            <div>
+                <h1>Informe de Análisis de Datos Económicos</h1>
+            
+                <div class="subtitulo-portada">Plantilla Profesional de Informes Científicos</div>
+                
+                <div class="autor">
+                    
+                    <img src="imagenes/autor.jpeg" alt="Foto del autor">
+                    <div class="subtitulo">Por <strong>Esteban Damian Santillan Suarez</strong>
+                </div>
+                </div>
 
-        // Variable para guardar la categoría actualmente seleccionada
-        let seleccionActual = null;
+            </div>
 
-        function getSumaPorCategoria() {
-            const resumen = {};
-            data.forEach(d => {
-                if (!resumen[d.categoria]) resumen[d.categoria] = 0;
-                resumen[d.categoria] += d.valor;
-            });
-            return {
-                labels: Object.keys(resumen),
-                values: Object.values(resumen)
-            };
-        }
+            <div>
+                <img src="imagenes/LOGO2_Capa 1.png" class="imagen-titular">
+            </div>            
+    </div>
+</header>
 
-        function getDatosPorCategoria(categoria) {
-            return data.filter(d => d.categoria === categoria);
-        }
 
-        function getTodosLosSubgrupos() {
-            return data;
-        }
 
-        function actualizarTorta(categoriaSeleccionada = null) {
-            const tortaDatos = getSumaPorCategoria();
-            const pull = tortaDatos.labels.map(label => {
-                return (label === categoriaSeleccionada) ? 0.1 : 0;
-            });
 
-            const torta = {
-                labels: tortaDatos.labels,
-                values: tortaDatos.values,
-                type: 'pie',
-                pull: pull
-            };
 
-            Plotly.react('torta', [torta], { title: 'Distribución por Categoría' });
-        }
+<div class="container">
+    <div class="container-fechayenlaces">
+        <div class="grid">
+            <div class="fecha">
+                Publicado: 25 Dic, 2022 01:00 a.m. &nbsp; | &nbsp; Actualizado: 25 Dic, 2022 07:08 p.m. AR
+            </div>
 
-        function actualizarBarras(filtrado, titulo) {
-            const barras = {
-                x: filtrado.map(d => d.categoria + ' - ' + d.subgrupo),
-                y: filtrado.map(d => d.valor),
-                type: 'bar'
-            };
+            <div class="redes-sociales">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-telegram"></i>
+            </div>
+        </div>
+    </div>
 
-            Plotly.react('barras', [barras], { title: titulo });
-        }
 
-        // Mostrar gráficos iniciales
-        actualizarTorta(); // sin selección
-        actualizarBarras(getTodosLosSubgrupos(), 'Todos los Subgrupos (sin filtro)');
+    <div class="linea-divisoria"></div>
 
-        // Evento al hacer clic en la torta
-        const tortaDiv = document.getElementById('torta');
-        tortaDiv.on('plotly_click', function(dataClick) {
-            const categoriaSeleccionada = dataClick.points[0].label;
 
-            if (seleccionActual === categoriaSeleccionada) {
-                // Si ya estaba seleccionada, deseleccionar
-                seleccionActual = null;
-                actualizarTorta();
-                actualizarBarras(getTodosLosSubgrupos(), 'Todos los Subgrupos (sin filtro)');
-            } else {
-                // Seleccionar nueva categoría
-                seleccionActual = categoriaSeleccionada;
-                const filtrado = getDatosPorCategoria(categoriaSeleccionada);
-                actualizarTorta(seleccionActual);
-                actualizarBarras(filtrado, 'Subgrupos de ' + categoriaSeleccionada);
-            }
-        });
+    <div class="container-contenido">
 
-        // Botón para reiniciar todo
-        document.getElementById('reset').addEventListener('click', function() {
-            seleccionActual = null;
-            actualizarTorta();
-            actualizarBarras(getTodosLosSubgrupos(), 'Todos los Subgrupos (sin filtro)');
-        });
-    </script>
+
+        <div class="grid-12">
+            <div class="col-1">
+                <h2>Resumen Ejecutivo</h2>
+            </div>
+
+            <div class="col-2">
+                <p>Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="grid-12">
+        <div class="col-1">
+            <h2>introduccion</h2>
+        </div>
+        <div class="col-2">
+            <p>Proporcionar antecedentes, contexto, motivación y preguntas de investigación que impulsan el análisislkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb.</p>
+        </div>
+    </div>
+
+
+    <div class="grid-12">
+        <div class="col-1">
+            <h2>Datos y Fuentes</h2>
+        </div>
+        <div class="col-2">
+            <p>Describir los conjuntos de datos, fuentes (por ejemplo: INDEC, FMI, Banco Mundial), períodos de tiempo, variables, tamaño de muestra y cualquier limitación de los datoslkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb.</p>
+        </div>
+    </div>
+
+
+    <div class="grid-12">
+        <div class="col-1">
+            <h2>Proceso</h2>
+        </div>
+        <div class="col-2">
+            <p>Explicar las técnicas estadísticas, modelos, herramientas de software (por ejemplo: Python, R, Excel) y los pasos de limpieza o transformación de datos utilizadoslkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb.</p>
+        </div>
+    </div>
+
+
+    <div class="grid-12">
+        <div class="col-1">
+            <h2>Resultados</h2>
+        </div>
+        
+    </div>
+
+
+
+    <div class="grid-12">
+        <div class="col-1-sinmargensuperior">
+            <h2>Estadísticas Descriptivas</h2>
+            <p>
+                Proporcionar tablas resumen, media, mediana, tendencias y observaciones iniciales.
+            </p>
+        </div>
+
+        <div class="col-grafico">
+            Aquí irá el gráfico o visualización interactiva (ej. Plotly, imagen, etc).
+        </div>
+    </div>
+
+
+
+
+    <div class="grid-12">
+        <div class="col-1-sinmargensuperior">
+            <h2>Resultados del Modelo</h2>
+                <p>
+                    Discutir los resultados de los modelos o análisis avanzados aplicados.
+                </p>
+        </div>
+
+        <div class="col-grafico">
+            Aquí irá el gráfico o visualización interactiva (ej. Plotly, imagen, etc).
+        </div>
+    </div>
+
+
+    <div class="grid-12">
+        <div class="col-1">
+            <h2>Discusión</h2>
+        </div>
+        <div class="col-2">
+            <p>Interpretar los resultados, discutir sus implicancias, limitaciones y relación con la literatura existente o debates de política.lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb</p>
+        </div>
+    </div>
+
+
+    <div class="grid-12">
+        <div class="col-1">
+            <h2>Conclusiones y Recomendaciones</h2>
+        </div>
+        <div class="col-2">
+            <p>Resumir los hallazgos clave y proponer recomendaciones prácticas o de política basadas en el análisis.lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb</p>
+        </div>
+    </div>
+
+
+    <div class="grid-12">
+        <div class="col-1">
+            <h2>Referencias</h2>
+        </div>
+        <div class="col-2">
+            <p>Listar todas las fuentes de datos, informes y literatura científica citada en el análisis.lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb</p>
+        </div>
+    </div>
+
+
+
+    <div class="grid-12">
+        <div class="col-1">
+            <h2>Anexo (Opcional)</h2>
+        </div>
+        <div class="col-2">
+            <p>Incluir tablas detalladas, modelos completos, gráficos adicionales o cualquier material suplementario.lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb Resumir brevemente los objetivos, fuentes de datos, métodos y principales hallazgos del análisis. sakhdgflasdhfkjsadhlkñfjas ksaj hldksa fhalk jabsdklb flaskhdblfkbsadlfkhbasd lkfhasdb lkasdb fklasdbl fkhasdgb klashdlf kahsdbflkashdb lfkasdb flkasdb faslkdb</p>
+        </div>
+    </div>
+
+
+</div>
+
+
 </body>
 </html>
